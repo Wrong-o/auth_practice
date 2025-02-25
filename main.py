@@ -8,8 +8,9 @@ from app.api.v1.core.models import Company
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    init_db()
     print("starting Application")
-    yield
+    yield #Efter yield händer när appen stängs ner
 
 app = FastAPI(lifespan=lifespan)
 
